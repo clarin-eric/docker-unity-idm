@@ -22,24 +22,23 @@ RUN echo "deb http://http.debian.net/debian jessie-backports main" >> /etc/apt/s
  && apt-get install -y openjdk-8-jre-headless
 
 # Download and install unity-idm
-RUN curl -SL -o/tmp/unity-server-distribution-1.8.0-dist.tar.gz http://downloads.sourceforge.net/project/unity-idm/Unity%20server/1.8.0/unity-server-distribution-1.8.0-dist.tar.gz \
- && cd /opt \
- && tar -xf /tmp/unity-server-distribution-1.8.0-dist.tar.gz \
- && rm /tmp/unity-server-distribution-1.8.0-dist.tar.gz
+ADD unity-server-distribution-1.8.1-SNAPSHOT-ldap-dist.tar.gz /opt
+RUN ln -s /opt/unity-server-distribution-1.8.1-SNAPSHOT /opt/unity-server
 
+COPY conf /opt/unity-server/conf
 # Update unity configuration
-RUN \
-  sed -i 's/log4j.rootLogger=INFO, LOGFILE/log4j.rootLogger=INFO, CONSOLE, LOGFILE/' /opt/unity-server-distribution-1.8.0/conf/log4j.properties && \
-  sed -i 's/unityServer.core.httpServer.host=localhost/unityServer.core.httpServer.host=0.0.0.0/' /opt/unity-server-distribution-1.8.0/conf/unityServer.conf && \
-  sed -i 's/unityServer.core.httpServer.advertisedHost=localhost/unityServer.core.httpServer.advertisedHost=192.168.59.109/' /opt/unity-server-distribution-1.8.0/conf/unityServer.conf
+#RUN \
+#  sed -i 's/log4j.rootLogger=INFO, LOGFILE/log4j.rootLogger=INFO, CONSOLE, LOGFILE/' /opt/unity-server/conf/log4j.properties && \
+#  sed -i 's/unityServer.core.httpServer.host=localhost/unityServer.core.httpServer.host=0.0.0.0/' /opt/unity-server/conf/unityServer.conf && \
+#  sed -i 's/unityServer.core.httpServer.advertisedHost=localhost/unityServer.core.httpServer.advertisedHost=192.168.59.109/' /opt/unity-server/conf/unityServer.conf
 
 # Expose volumes
-VOLUME ["/opt/unity-server-distribution-1.8.0/logs", "/opt/unity-server-distribution-1.8.0/data"]
+VOLUME ["/opt/unity-server/logs", "/opt/unity-server/data"]
 
 # Add new server start script running unity in foreground and use this as the containers command
-COPY unity-idm-server-start-fg /opt/unity-server-distribution-1.8.0/bin/unity-idm-server-start-fg
-RUN chmod u+x /opt/unity-server-distribution-1.8.0/bin/unity-idm-server-start-fg
-CMD ["/opt/unity-server-distribution-1.8.0/bin/unity-idm-server-start-fg"]
+COPY unity-idm-server-start-fg /opt/unity-server/bin/unity-idm-server-start-fg
+RUN chmod u+x /opt/unity-server/bin/unity-idm-server-start-fg
+CMD ["/opt/unity-server/bin/unity-idm-server-start-fg"]
 
 # Export the unity main port
-EXPOSE 2443
+EXPOSE 2443 10000 10443
