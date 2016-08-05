@@ -25,15 +25,11 @@ RUN echo "deb http://http.debian.net/debian jessie-backports main" >> /etc/apt/s
 ADD unity-server-distribution-1.8.1-SNAPSHOT-ldap-dist.tar.gz /opt
 RUN ln -s /opt/unity-server-distribution-1.8.1-SNAPSHOT /opt/unity-server
 
-COPY conf /opt/unity-server/conf
 # Update unity configuration
-#RUN \
-#  sed -i 's/log4j.rootLogger=INFO, LOGFILE/log4j.rootLogger=INFO, CONSOLE, LOGFILE/' /opt/unity-server/conf/log4j.properties && \
-#  sed -i 's/unityServer.core.httpServer.host=localhost/unityServer.core.httpServer.host=0.0.0.0/' /opt/unity-server/conf/unityServer.conf && \
-#  sed -i 's/unityServer.core.httpServer.advertisedHost=localhost/unityServer.core.httpServer.advertisedHost=192.168.59.109/' /opt/unity-server/conf/unityServer.conf
+COPY conf /opt/unity-server/conf
 
 # Expose volumes
-VOLUME ["/opt/unity-server/logs", "/opt/unity-server/data"]
+VOLUME ["/opt/unity-server/data"]
 
 # Add new server start script running unity in foreground and use this as the containers command
 COPY unity-idm-server-start-fg /opt/unity-server/bin/unity-idm-server-start-fg
