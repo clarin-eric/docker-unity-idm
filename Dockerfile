@@ -2,14 +2,13 @@
 # System packages:
 #   - openjdk 8
 # Custom packages: 
-#   - unity-idm 1.8.0
+#   - unity-idm 1.8.1 ldap branch
 #
 
 # Pull base image.
 FROM docker.clarin.eu/base:1.0.1
 MAINTAINER sysops@clarin.eu
 
-#ENV TERM=xterm
 ENV JAVA_HOME /usr
 ENV CATALINA_HOME /usr/share/tomcat8
 ENV CATALINA_BASE /var/lib/tomcat8
@@ -34,7 +33,11 @@ VOLUME ["/opt/unity-server/data"]
 # Add new server start script running unity in foreground and use this as the containers command
 COPY unity-idm-server-start-fg /opt/unity-server/bin/unity-idm-server-start-fg
 RUN chmod u+x /opt/unity-server/bin/unity-idm-server-start-fg
-CMD ["/opt/unity-server/bin/unity-idm-server-start-fg"]
 
-# Export the unity main port
+COPY entrypoint.sh /opt/entrypoint.sh
+RUN chmod u+x /opt/entrypoint.sh
+
+CMD ["/opt/entrypoint.sh"]
+
+# Export the unity main and ldap ports
 EXPOSE 2443 10000 10443
