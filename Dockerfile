@@ -18,7 +18,7 @@ ENV JAVA_OPTS "-Djava.security.egd=file:/dev/./urandom"
 # Install required packages
 RUN echo "deb http://http.debian.net/debian jessie-backports main" >> /etc/apt/sources.list \
  && apt-get update -y \
- && apt-get install -y openjdk-8-jre-headless
+ && apt-get install -y openjdk-8-jre-headless supervisor
 
 # Download and install unity-idm
 ADD unity-server-distribution-1.8.1-SNAPSHOT-ldap-dist.tar.gz /opt
@@ -36,6 +36,12 @@ RUN chmod u+x /opt/unity-server/bin/unity-idm-server-start-fg
 
 COPY entrypoint.sh /opt/entrypoint.sh
 RUN chmod u+x /opt/entrypoint.sh
+
+#
+# Supervisor
+#
+COPY supervisor/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+RUN mkdir -p /var/log/supervisord
 
 CMD ["/opt/entrypoint.sh"]
 
