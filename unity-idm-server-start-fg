@@ -15,6 +15,7 @@ PWD="`pwd`"
 cd "$BASE_DIR"
 
 RUN_COMMAND="$JAVA ${MEM} ${OPTS} ${DEFS} pl.edu.icm.unity.server.UnityApplication ${PARAM}"
+echo ${RUN_COMMAND}
 if [ "${AUTHBIND}" ]
 then
         "${AUTHBIND}" --deep ${RUN_COMMAND}

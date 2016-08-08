@@ -30,10 +30,6 @@ COPY conf /opt/unity-server/conf
 # Expose volumes
 VOLUME ["/opt/unity-server/data"]
 
-# Add new server start script running unity in foreground and use this as the containers command
-COPY unity-idm-server-start-fg /opt/unity-server/bin/unity-idm-server-start-fg
-RUN chmod u+x /opt/unity-server/bin/unity-idm-server-start-fg
-
 COPY entrypoint.sh /opt/entrypoint.sh
 RUN chmod u+x /opt/entrypoint.sh
 
@@ -42,6 +38,11 @@ RUN chmod u+x /opt/entrypoint.sh
 #
 COPY supervisor/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 RUN mkdir -p /var/log/supervisord
+
+ADD download-sp-metadata.sh /opt/download-metadata.sh
+RUN chmod u+x /opt/download-metadata.sh
+
+WORKDIR /opt/unity-server/
 
 CMD ["/opt/entrypoint.sh"]
 
