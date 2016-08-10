@@ -18,7 +18,7 @@ ENV JAVA_OPTS "-Djava.security.egd=file:/dev/./urandom"
 # Install required packages
 RUN echo "deb http://http.debian.net/debian jessie-backports main" >> /etc/apt/sources.list \
  && apt-get update -y \
- && apt-get install -y openjdk-8-jre-headless supervisor
+ && apt-get install -y openjdk-8-jre-headless supervisor openssh-server
 
 # Download and install unity-idm
 ADD unity-server-distribution-1.8.1-SNAPSHOT-ldap-dist.tar.gz /opt
@@ -26,6 +26,8 @@ RUN ln -s /opt/unity-server-distribution-1.8.1-SNAPSHOT /opt/unity-server
 
 # Update unity configuration
 COPY conf /opt/unity-server/conf
+# Restore database
+COPY data /opt/unity-server/data
 
 # Expose volumes
 VOLUME ["/opt/unity-server/data"]
@@ -42,9 +44,13 @@ RUN mkdir -p /var/log/supervisord
 ADD download-sp-metadata.sh /opt/download-metadata.sh
 RUN chmod u+x /opt/download-metadata.sh
 
+RUN mkdir /var/run/sshd \
+ && useradd -m -s /bin/bash test \
+ && echo "test:test"|chpasswd
+
 WORKDIR /opt/unity-server/
 
 CMD ["/opt/entrypoint.sh"]
 
 # Export the unity main and ldap ports
-EXPOSE 2443 10000 10443
+EXPOSE 2443 10000 10443 22

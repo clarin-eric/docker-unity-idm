@@ -13,7 +13,11 @@ if [ ! -f ${FILE} ]; then
     printf " Done\n"
 
     printf "Downloading metadata."
-    curl -o ${FILE} --insecure --silent ${URL}
+    curl -o ${FILE}.tmp --insecure --silent ${URL}
+    echo '<?xml version="1.0" encoding="UTF-8"?>' >> ${FILE}
+    echo '<md:EntitiesDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xrd="http://docs.oasis-open.org/ns/xri/xrd-1.0">' >> ${FILE}
+    cat ${FILE}.tmp >> ${FILE}
+    echo '</md:EntitiesDescriptor>' >> ${FILE}
     printf ' Done\n'
 
     printf "Restarting unity."

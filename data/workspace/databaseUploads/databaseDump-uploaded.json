@@ -1,0 +1,1791 @@
+{
+  "versionMajor" : 1,
+  "versionMinor" : 5,
+  "timestamp" : 1470823887699,
+  "contents" : {
+    "attributeTypes" : [ {
+      "id" : 1,
+      "name" : "sys:oauth:allowedGrantFlows",
+      "contents" : {
+        "flags" : 1,
+        "maxElements" : 5,
+        "minElements" : 1,
+        "selfModificable" : false,
+        "uniqueValues" : true,
+        "visibility" : "local",
+        "syntaxState" : "{\"allowed\":[\"implicit\",\"client\",\"openidHybrid\",\"authorizationCode\"]}",
+        "displayedName" : {
+          "DefaultValue" : null,
+          "Map" : {
+            "pl" : "Dozwolone granty OAuth",
+            "en" : "OAuth client allowed grants"
+          }
+        },
+        "i18nDescription" : {
+          "DefaultValue" : null,
+          "Map" : {
+            "pl" : "Atrybut klienta OAauth. Definiuje dozwolone granty OAuth dla klienta. Jeśli jest niezdefiniowany tylko Authorization Code grant jest dozwolony.",
+            "en" : "OAuth Client specific attribute. Defines which grants are allowed for the client. If undefined then only the Authorization Code grant is allowed."
+          }
+        },
+        "metadata" : { }
+      },
+      "valueSyntaxId" : "enumeration"
+    }, {
+      "id" : 2,
+      "name" : "sys:oauth:allowedReturnURI",
+      "contents" : {
+        "flags" : 1,
+        "maxElements" : 5,
+        "minElements" : 1,
+        "selfModificable" : false,
+        "uniqueValues" : false,
+        "visibility" : "local",
+        "syntaxState" : "{\"regexp\":\"\",\"minLength\":0,\"maxLength\":10240}",
+        "displayedName" : {
+          "DefaultValue" : null,
+          "Map" : {
+            "pl" : "Powrotny adres klienta OAuth",
+            "en" : "OAuth client return URL"
+          }
+        },
+        "i18nDescription" : {
+          "DefaultValue" : null,
+          "Map" : {
+            "pl" : "Atrybut klienta OAauth. Definiuje dozwolone adresu przekierowań powrotnych. Jest to ważne ustawienie bezpieczeństwa dla grantów authorization code i implicit. Jeśli nie jest ustawiony nie będą one działać dla klienta. ",
+            "en" : "OAuth Client specific attribute. Defines which return redirect URIs are allowed for the client. This is important security measure for the authorization code and implicit grants. If undefined then no URI is allowed and both implicit and authorization code grants will be effectively disabled for the client."
+          }
+        },
+        "metadata" : { }
+      },
+      "valueSyntaxId" : "string"
+    }, {
+      "id" : 3,
+      "name" : "sys:oauth:clientLogo",
+      "contents" : {
+        "flags" : 1,
+        "maxElements" : 1,
+        "minElements" : 1,
+        "selfModificable" : false,
+        "uniqueValues" : false,
+        "visibility" : "local",
+        "syntaxState" : "{\"maxWidth\":400,\"maxHeight\":200,\"maxSize\":4000000}",
+        "displayedName" : {
+          "DefaultValue" : null,
+          "Map" : {
+            "pl" : "Logo klienta OAuth",
+            "en" : "OAuth client logo"
+          }
+        },
+        "i18nDescription" : {
+          "DefaultValue" : null,
+          "Map" : {
+            "pl" : "Atrybut klienta OAauth. Definiuje logo klienta wyświetlane użytkownikom.",
+            "en" : "OAuth Client specific attribute. Defines a logo which is displayed for the client."
+          }
+        },
+        "metadata" : { }
+      },
+      "valueSyntaxId" : "jpegImage"
+    }, {
+      "id" : 4,
+      "name" : "sys:oauth:clientName",
+      "contents" : {
+        "flags" : 1,
+        "maxElements" : 1,
+        "minElements" : 1,
+        "selfModificable" : false,
+        "uniqueValues" : false,
+        "visibility" : "local",
+        "syntaxState" : "{\"regexp\":\"\",\"minLength\":0,\"maxLength\":10240}",
+        "displayedName" : {
+          "DefaultValue" : null,
+          "Map" : {
+            "pl" : "Nazwa klienta OAuth",
+            "en" : "OAuth client name"
+          }
+        },
+        "i18nDescription" : {
+          "DefaultValue" : null,
+          "Map" : {
+            "pl" : "Atrybut klienta OAauth. Definiuje nazwę klienta wyświetlaną użytkownikom. ",
+            "en" : "OAuth Client specific attribute. Defines human readable name of the client."
+          }
+        },
+        "metadata" : { }
+      },
+      "valueSyntaxId" : "string"
+    }, {
+      "id" : 5,
+      "name" : "sys:oauth:groupForClient",
+      "contents" : {
+        "flags" : 1,
+        "maxElements" : 1,
+        "minElements" : 1,
+        "selfModificable" : false,
+        "uniqueValues" : false,
+        "visibility" : "local",
+        "syntaxState" : "{\"regexp\":\"\",\"minLength\":0,\"maxLength\":10240}",
+        "displayedName" : {
+          "DefaultValue" : null,
+          "Map" : {
+            "pl" : "Grupa użytkowników klienta OAuth",
+            "en" : "OAuth users group"
+          }
+        },
+        "i18nDescription" : {
+          "DefaultValue" : null,
+          "Map" : {
+            "pl" : "Atrybut klienta OAauth. Definiuje grupę do której muszą należeć wszyscy użytkownicy których do których ma dostęp klient. Z tej grupy będą również pobierane ich atrybuty dla klienta. Ten atrybut nadpisuje ogólnie ustawioną grupę w konfiguracji endpointu.",
+            "en" : "OAuth Client specific attribute. Defines a group path, where users of this client should be present and where their attributes are resolved. This attribute overrides the default group configured per endpoint."
+          }
+        },
+        "metadata" : { }
+      },
+      "valueSyntaxId" : "string"
+    }, {
+      "id" : 6,
+      "name" : "sys:CredentialRequirements",
+      "contents" : {
+        "flags" : 3,
+        "maxElements" : 1,
+        "minElements" : 1,
+        "selfModificable" : false,
+        "uniqueValues" : false,
+        "visibility" : "local",
+        "syntaxState" : "{\"regexp\":\"\",\"minLength\":0,\"maxLength\":10240}",
+        "displayedName" : {
+          "DefaultValue" : null,
+          "Map" : { }
+        },
+        "i18nDescription" : {
+          "DefaultValue" : null,
+          "Map" : {
+            "en" : "Defines which credential requirements are set for the owner"
+          }
+        },
+        "metadata" : { }
+      },
+      "valueSyntaxId" : "string"
+    }, {
+      "id" : 7,
+      "name" : "sys:AuthorizationRole",
+      "contents" : {
+        "flags" : 1,
+        "maxElements" : 10,
+        "minElements" : 1,
+        "selfModificable" : false,
+        "uniqueValues" : true,
+        "visibility" : "local",
+        "syntaxState" : "{\"allowed\":[\"Privileged Inspector\",\"Anonymous User\",\"Inspector\",\"System Manager\",\"Contents Manager\",\"Regular User\"]}",
+        "displayedName" : {
+          "DefaultValue" : null,
+          "Map" : {
+            "pl" : "Rola autoryzacyjna",
+            "en" : "Authorization role"
+          }
+        },
+        "i18nDescription" : {
+          "DefaultValue" : null,
+          "Map" : {
+            "pl" : "Definiuje jakie operacje są dozwolone dla posiadacza. Wpływa na dostęp do grupy w której atrybut jest przydzielony oraz wszystkich podgrupach, gdzie może być nadpisany. Dostępne role:\n<b>System Manager</b> - System manager with all privileges.\n<b>Contents Manager</b> - Allows for performing all management operations related to groups, entities and attributes. Also allows for reading information about hidden attributes.\n<b>Privileged Inspector</b> - Allows for reading entities, groups and attributes, including the attributes visible locally only. No modifications are possible\n<b>Inspector</b> - Allows for reading entities, groups and attributes. No modifications are possible\n<b>Regular User</b> - Allows owners for reading of the basic system information, retrieval of information about themselves and also for changing self managed attributes, identities and passwords\n<b>Anonymous User</b> - Allows for minimal access to the system: owners can get basic system information and retrieve information about themselves\n",
+            "en" : "Defines what operations are allowed for the bearer. The attribute of this type defines the access in the group where it is defined and in all subgroups. In subgroup it can be redefined to grant more access. Roles:\n <b>System Manager</b> - System manager with all privileges.\n<b>Contents Manager</b> - Allows for performing all management operations related to groups, entities and attributes. Also allows for reading information about hidden attributes.\n<b>Privileged Inspector</b> - Allows for reading entities, groups and attributes, including the attributes visible locally only. No modifications are possible\n<b>Inspector</b> - Allows for reading entities, groups and attributes. No modifications are possible\n<b>Regular User</b> - Allows owners for reading of the basic system information, retrieval of information about themselves and also for changing self managed attributes, identities and passwords\n<b>Anonymous User</b> - Allows for minimal access to the system: owners can get basic system information and retrieve information about themselves\n"
+          }
+        },
+        "metadata" : { }
+      },
+      "valueSyntaxId" : "enumeration"
+    }, {
+      "id" : 8,
+      "name" : "sys:Preferences",
+      "contents" : {
+        "flags" : 3,
+        "maxElements" : 1,
+        "minElements" : 1,
+        "selfModificable" : false,
+        "uniqueValues" : false,
+        "visibility" : "local",
+        "syntaxState" : "{\"regexp\":\"\",\"minLength\":0,\"maxLength\":10240}",
+        "displayedName" : {
+          "DefaultValue" : null,
+          "Map" : { }
+        },
+        "i18nDescription" : {
+          "DefaultValue" : null,
+          "Map" : {
+            "en" : "Preferences of the user"
+          }
+        },
+        "metadata" : { }
+      },
+      "valueSyntaxId" : "string"
+    }, {
+      "id" : 9,
+      "name" : "sys:AttributeClasses",
+      "contents" : {
+        "flags" : 3,
+        "maxElements" : 20,
+        "minElements" : 0,
+        "selfModificable" : false,
+        "uniqueValues" : true,
+        "visibility" : "local",
+        "syntaxState" : "{\"regexp\":\"\",\"minLength\":0,\"maxLength\":10240}",
+        "displayedName" : {
+          "DefaultValue" : null,
+          "Map" : { }
+        },
+        "i18nDescription" : {
+          "DefaultValue" : null,
+          "Map" : {
+            "en" : "Attribute classes of the user"
+          }
+        },
+        "metadata" : { }
+      },
+      "valueSyntaxId" : "string"
+    }, {
+      "id" : 10,
+      "name" : "sys:Credential:Password credential",
+      "contents" : {
+        "flags" : 3,
+        "maxElements" : 1,
+        "minElements" : 1,
+        "selfModificable" : false,
+        "uniqueValues" : false,
+        "visibility" : "local",
+        "syntaxState" : "{\"regexp\":\"\",\"minLength\":0,\"maxLength\":10240}",
+        "displayedName" : {
+          "DefaultValue" : null,
+          "Map" : { }
+        },
+        "i18nDescription" : {
+          "DefaultValue" : null,
+          "Map" : {
+            "en" : "Credential of Password credential"
+          }
+        },
+        "metadata" : { }
+      },
+      "valueSyntaxId" : "string"
+    }, {
+      "id" : 11,
+      "name" : "sys:Credential:Certificate credential",
+      "contents" : {
+        "flags" : 3,
+        "maxElements" : 1,
+        "minElements" : 1,
+        "selfModificable" : false,
+        "uniqueValues" : false,
+        "visibility" : "local",
+        "syntaxState" : "{\"regexp\":\"\",\"minLength\":0,\"maxLength\":10240}",
+        "displayedName" : {
+          "DefaultValue" : null,
+          "Map" : { }
+        },
+        "i18nDescription" : {
+          "DefaultValue" : null,
+          "Map" : {
+            "en" : "Credential of Certificate credential"
+          }
+        },
+        "metadata" : { }
+      },
+      "valueSyntaxId" : "string"
+    }, {
+      "id" : 12,
+      "name" : "jpegPhoto",
+      "contents" : {
+        "flags" : 0,
+        "maxElements" : 1,
+        "minElements" : 1,
+        "selfModificable" : false,
+        "uniqueValues" : false,
+        "visibility" : "full",
+        "syntaxState" : "{\"maxWidth\":120,\"maxHeight\":120,\"maxSize\":2000000}",
+        "displayedName" : {
+          "DefaultValue" : null,
+          "Map" : {
+            "pl" : "Zdjęcie",
+            "en" : "Small photo"
+          }
+        },
+        "i18nDescription" : {
+          "DefaultValue" : null,
+          "Map" : {
+            "pl" : "Małe zdjęcie w formacie JPEG",
+            "en" : "Small JPEG photo for user's profile"
+          }
+        },
+        "metadata" : { }
+      },
+      "valueSyntaxId" : "jpegImage"
+    }, {
+      "id" : 13,
+      "name" : "cn",
+      "contents" : {
+        "flags" : 0,
+        "maxElements" : 1,
+        "minElements" : 1,
+        "selfModificable" : false,
+        "uniqueValues" : false,
+        "visibility" : "full",
+        "syntaxState" : "{\"regexp\":\"\",\"minLength\":2,\"maxLength\":100}",
+        "displayedName" : {
+          "DefaultValue" : null,
+          "Map" : {
+            "pl" : "Nazwa",
+            "en" : "Name"
+          }
+        },
+        "i18nDescription" : {
+          "DefaultValue" : null,
+          "Map" : {
+            "pl" : "Nazwa pospolita (np. imie i nazwisko)",
+            "en" : "Common name"
+          }
+        },
+        "metadata" : {
+          "entityDisplayedName" : ""
+        }
+      },
+      "valueSyntaxId" : "string"
+    }, {
+      "id" : 14,
+      "name" : "o",
+      "contents" : {
+        "flags" : 0,
+        "maxElements" : 10,
+        "minElements" : 1,
+        "selfModificable" : false,
+        "uniqueValues" : false,
+        "visibility" : "full",
+        "syntaxState" : "{\"regexp\":\"\",\"minLength\":2,\"maxLength\":33}",
+        "displayedName" : {
+          "DefaultValue" : null,
+          "Map" : {
+            "pl" : "Organizacja",
+            "en" : "Organization"
+          }
+        },
+        "i18nDescription" : {
+          "DefaultValue" : null,
+          "Map" : { }
+        },
+        "metadata" : { }
+      },
+      "valueSyntaxId" : "string"
+    }, {
+      "id" : 15,
+      "name" : "email",
+      "contents" : {
+        "flags" : 0,
+        "maxElements" : 5,
+        "minElements" : 1,
+        "selfModificable" : false,
+        "uniqueValues" : false,
+        "visibility" : "full",
+        "syntaxState" : "{}",
+        "displayedName" : {
+          "DefaultValue" : null,
+          "Map" : {
+            "pl" : "Adres e-mail",
+            "en" : "E-mail address"
+          }
+        },
+        "i18nDescription" : {
+          "DefaultValue" : null,
+          "Map" : { }
+        },
+        "metadata" : {
+          "contactEmail" : ""
+        }
+      },
+      "valueSyntaxId" : "verifiableEmail"
+    }, {
+      "id" : 16,
+      "name" : "picture",
+      "contents" : {
+        "flags" : 0,
+        "maxElements" : 10,
+        "minElements" : 0,
+        "selfModificable" : false,
+        "uniqueValues" : false,
+        "visibility" : "full",
+        "syntaxState" : "{\"maxWidth\":900,\"maxHeight\":900,\"maxSize\":1400000}",
+        "displayedName" : {
+          "DefaultValue" : null,
+          "Map" : {
+            "pl" : "Zdjęcie",
+            "en" : "Picture"
+          }
+        },
+        "i18nDescription" : {
+          "DefaultValue" : null,
+          "Map" : {
+            "pl" : "Zdjęcie profilowe użytkownika",
+            "en" : "Picture of the user"
+          }
+        },
+        "metadata" : { }
+      },
+      "valueSyntaxId" : "jpegImage"
+    }, {
+      "id" : 17,
+      "name" : "postalcode",
+      "contents" : {
+        "flags" : 0,
+        "maxElements" : 2147483647,
+        "minElements" : 0,
+        "selfModificable" : false,
+        "uniqueValues" : false,
+        "visibility" : "full",
+        "syntaxState" : "{\"regexp\":\"[0-9][0-9]-[0-9][0-9][0-9]\",\"minLength\":0,\"maxLength\":6}",
+        "displayedName" : {
+          "DefaultValue" : null,
+          "Map" : {
+            "pl" : "Kod pocztowy",
+            "en" : "Postal code"
+          }
+        },
+        "i18nDescription" : {
+          "DefaultValue" : null,
+          "Map" : { }
+        },
+        "metadata" : { }
+      },
+      "valueSyntaxId" : "string"
+    }, {
+      "id" : 18,
+      "name" : "height",
+      "contents" : {
+        "flags" : 0,
+        "maxElements" : 1,
+        "minElements" : 1,
+        "selfModificable" : false,
+        "uniqueValues" : false,
+        "visibility" : "full",
+        "syntaxState" : "{\"min\":4.9E-324,\"max\":1.7976931348623157E308}",
+        "displayedName" : {
+          "DefaultValue" : null,
+          "Map" : {
+            "pl" : "Wzrost",
+            "en" : "Height"
+          }
+        },
+        "i18nDescription" : {
+          "DefaultValue" : null,
+          "Map" : {
+            "pl" : "Informacja o wzroście użytkownika w cm.",
+            "en" : "Height provides information on users height"
+          }
+        },
+        "metadata" : { }
+      },
+      "valueSyntaxId" : "floatingPoint"
+    }, {
+      "id" : 19,
+      "name" : "urn:unicore:attrType:role",
+      "contents" : {
+        "flags" : 0,
+        "maxElements" : 1,
+        "minElements" : 1,
+        "selfModificable" : false,
+        "uniqueValues" : false,
+        "visibility" : "full",
+        "syntaxState" : "{\"allowed\":[\"server\",\"admin\",\"banned\",\"user\"]}",
+        "displayedName" : {
+          "DefaultValue" : null,
+          "Map" : {
+            "pl" : "Rola UNICORE",
+            "en" : "UNICORE role"
+          }
+        },
+        "i18nDescription" : {
+          "DefaultValue" : null,
+          "Map" : {
+            "pl" : "Rola użytkownika lub serwera używana do autoryzacji dostepu do UNICORE. Rola <b>user</b> daje normalny dostęp, <b>admin</b> pełen dostęp, <b>server</b> pozwala na rejestrację w rejestrze UNCORE, użytkownicy z rolą <b>banned</b> są całkowicie zablokowani.",
+            "en" : "User or server role used for UNICORE authorization. The <b>user</b> role provides normal access, <b>admin</b> the full access, <b>server</b> allows for registering in UNICORE registry, <b>banned</b> users have access fully blocked."
+          }
+        },
+        "metadata" : { }
+      },
+      "valueSyntaxId" : "enumeration"
+    }, {
+      "id" : 20,
+      "name" : "urn:unicore:attrType:xlogin",
+      "contents" : {
+        "flags" : 0,
+        "maxElements" : 16,
+        "minElements" : 1,
+        "selfModificable" : false,
+        "uniqueValues" : false,
+        "visibility" : "full",
+        "syntaxState" : "{\"regexp\":\"\",\"minLength\":1,\"maxLength\":100}",
+        "displayedName" : {
+          "DefaultValue" : null,
+          "Map" : {
+            "pl" : "Login UNICORE",
+            "en" : "UNICORE login"
+          }
+        },
+        "i18nDescription" : {
+          "DefaultValue" : null,
+          "Map" : {
+            "pl" : "Nazwa konta UNIX (uid) w infrastrukturze UNICORE",
+            "en" : "UNIX account name (uid) at UNICORE site"
+          }
+        },
+        "metadata" : { }
+      },
+      "valueSyntaxId" : "string"
+    } ],
+    "identityTypes" : [ {
+      "id" : 1,
+      "name" : "x500Name",
+      "contents" : {
+        "description" : "X.500 Distinguished Name",
+        "selfModificable" : false,
+        "minInstances" : 0,
+        "maxInstances" : 2147483647,
+        "minVerifiedInstances" : 0,
+        "extractedAttributes" : [ ]
+      }
+    }, {
+      "id" : 2,
+      "name" : "identifier",
+      "contents" : {
+        "description" : "Opaque identifier",
+        "selfModificable" : false,
+        "minInstances" : 0,
+        "maxInstances" : 2147483647,
+        "minVerifiedInstances" : 0,
+        "extractedAttributes" : [ ]
+      }
+    }, {
+      "id" : 3,
+      "name" : "transient",
+      "contents" : {
+        "description" : "Transient targeted id",
+        "selfModificable" : false,
+        "minInstances" : 0,
+        "maxInstances" : 2147483647,
+        "minVerifiedInstances" : 0,
+        "extractedAttributes" : [ ]
+      }
+    }, {
+      "id" : 4,
+      "name" : "targetedPersistent",
+      "contents" : {
+        "description" : "Targeted persistent id",
+        "selfModificable" : false,
+        "minInstances" : 0,
+        "maxInstances" : 2147483647,
+        "minVerifiedInstances" : 0,
+        "extractedAttributes" : [ ]
+      }
+    }, {
+      "id" : 5,
+      "name" : "persistent",
+      "contents" : {
+        "description" : "Persistent id",
+        "selfModificable" : false,
+        "minInstances" : 0,
+        "maxInstances" : 2147483647,
+        "minVerifiedInstances" : 0,
+        "extractedAttributes" : [ ]
+      }
+    }, {
+      "id" : 6,
+      "name" : "userName",
+      "contents" : {
+        "description" : "Username",
+        "selfModificable" : false,
+        "minInstances" : 0,
+        "maxInstances" : 2147483647,
+        "minVerifiedInstances" : 0,
+        "extractedAttributes" : [ ]
+      }
+    }, {
+      "id" : 7,
+      "name" : "email",
+      "contents" : {
+        "description" : "Email",
+        "selfModificable" : false,
+        "minInstances" : 0,
+        "maxInstances" : 2147483647,
+        "minVerifiedInstances" : 0,
+        "extractedAttributes" : [ ]
+      }
+    } ],
+    "entities" : [ {
+      "id" : 1,
+      "name" : null,
+      "contents" : {
+        "state" : "valid"
+      }
+    }, {
+      "id" : 2,
+      "name" : null,
+      "contents" : {
+        "state" : "valid"
+      }
+    }, {
+      "id" : 3,
+      "name" : null,
+      "contents" : {
+        "state" : "valid"
+      }
+    }, {
+      "id" : 4,
+      "name" : null,
+      "contents" : {
+        "state" : "valid"
+      }
+    } ],
+    "identities" : [ {
+      "id" : 1,
+      "name" : "CiAMFwnAoHWsHwVfQ7lx4Sz/EmE2Lsosc6Ao502jKyr1u6tRGyn7Z1AMuHxrbtIOQkKhNQ9fQa+YX2y+2WWcVw==",
+      "contents" : {
+        "creationTs" : 1470823042011,
+        "updateTs" : 1470823042011,
+        "value" : "admin",
+        "confirmationInfo" : "{\"confirmed\":false,\"confirmationDate\":0,\"sentRequestAmount\":0}"
+      },
+      "entityId" : 1,
+      "typeName" : "userName"
+    }, {
+      "id" : 2,
+      "name" : "OPoNjWrsyN6lwKQ3T1fP9bZsNsPdr1UpOkBnvcAII25WJ/mXW/J1kxdhs+7TX0ZFrwqpBIGqNc6ZA0wu76lk4Q==",
+      "contents" : {
+        "creationTs" : 1470823042156,
+        "updateTs" : 1470823042156,
+        "value" : "oauth-client",
+        "confirmationInfo" : "{\"confirmed\":false,\"confirmationDate\":0,\"sentRequestAmount\":0}"
+      },
+      "entityId" : 2,
+      "typeName" : "userName"
+    }, {
+      "id" : 3,
+      "name" : "miMa15wuD2+G0tAuK5FKq/ynDq7ZlRM/sbhrNc4ShWtlABrt0m/+JqUZR0P36hLTCxtQe5w6N/82g5NW6JyGmA==",
+      "contents" : {
+        "creationTs" : 1470823042334,
+        "updateTs" : 1470823042334,
+        "value" : "demo-user",
+        "confirmationInfo" : "{\"confirmed\":false,\"confirmationDate\":0,\"sentRequestAmount\":0}"
+      },
+      "entityId" : 3,
+      "typeName" : "userName"
+    }, {
+      "id" : 4,
+      "name" : "3xOzIPMhIHJtXQzyiUheE0NWyBnq2LRJFp5OpawDQ8MXQLR/vjpixL0Y1UJIUpaMIkRV4CPOJU5Zg1BRiQX+4g==",
+      "contents" : {
+        "creationTs" : 1470823042413,
+        "updateTs" : 1470823042413,
+        "value" : "CN=Demo user",
+        "confirmationInfo" : "{\"confirmed\":false,\"confirmationDate\":0,\"sentRequestAmount\":0}"
+      },
+      "entityId" : 3,
+      "typeName" : "x500Name"
+    }, {
+      "id" : 5,
+      "name" : "aQl3m8jOYnV6RrYiF3GZJ2l1syiaCimRe1KOIThT+6yfb+erKCvVWVLP9mwdUTYcDEE/heUKGPqepr0an1L70A==",
+      "contents" : {
+        "value" : "0fa01481-1da7-45d9-b365-d5e5c3c39221"
+      },
+      "entityId" : 1,
+      "typeName" : "persistent"
+    }, {
+      "id" : 6,
+      "name" : "gRl4a5AKVjgzkdz13FSqysNZMQNmvEN8IkwYchMLpRgvzoXP1LUzTOg7n1dRuVMrUSxM1mqIP+3NgRnxQRU8gQ==",
+      "contents" : {
+        "creationTs" : 1470823161599,
+        "updateTs" : 1470823161599,
+        "value" : "test",
+        "confirmationInfo" : "{\"confirmed\":false,\"confirmationDate\":0,\"sentRequestAmount\":0}",
+        "metadata" : null
+      },
+      "entityId" : 4,
+      "typeName" : "userName"
+    } ],
+    "groups" : [ {
+      "id" : 1,
+      "name" : "ROOT",
+      "contents" : {
+        "i18nDescription" : {
+          "DefaultValue" : null,
+          "Map" : { }
+        },
+        "displayedName" : {
+          "DefaultValue" : "/",
+          "Map" : { }
+        },
+        "attributeStatements" : [ {
+          "resolution" : "skip",
+          "condition" : "true",
+          "visibility" : "full",
+          "fixedAttribute-attributeId" : 7,
+          "fixedAttribute-attributeGroupId" : 1,
+          "fixedAttribute-attributeValues" : "eyJ2aXNpYmlsaXR5IjoibG9jYWwiLCJ2YWx1ZXMiOlsiVW1WbmRXeGhjaUJWYzJWeSJdfQ=="
+        } ],
+        "attributesClasses" : [ ]
+      },
+      "groupPath" : "/"
+    }, {
+      "id" : 3,
+      "name" : "A",
+      "contents" : {
+        "i18nDescription" : {
+          "DefaultValue" : null,
+          "Map" : { }
+        },
+        "displayedName" : {
+          "DefaultValue" : "/A",
+          "Map" : { }
+        },
+        "attributeStatements" : [ ],
+        "attributesClasses" : [ ]
+      },
+      "groupPath" : "/A"
+    }, {
+      "id" : 6,
+      "name" : "D",
+      "contents" : {
+        "i18nDescription" : {
+          "DefaultValue" : null,
+          "Map" : { }
+        },
+        "displayedName" : {
+          "DefaultValue" : "/D",
+          "Map" : { }
+        },
+        "attributeStatements" : [ ],
+        "attributesClasses" : [ ]
+      },
+      "groupPath" : "/D"
+    }, {
+      "id" : 4,
+      "name" : "B",
+      "contents" : {
+        "i18nDescription" : {
+          "DefaultValue" : null,
+          "Map" : { }
+        },
+        "displayedName" : {
+          "DefaultValue" : "/A/B",
+          "Map" : { }
+        },
+        "attributeStatements" : [ ],
+        "attributesClasses" : [ ]
+      },
+      "groupPath" : "/A/B"
+    }, {
+      "id" : 7,
+      "name" : "E",
+      "contents" : {
+        "i18nDescription" : {
+          "DefaultValue" : null,
+          "Map" : { }
+        },
+        "displayedName" : {
+          "DefaultValue" : "/D/E",
+          "Map" : { }
+        },
+        "attributeStatements" : [ ],
+        "attributesClasses" : [ ]
+      },
+      "groupPath" : "/D/E"
+    }, {
+      "id" : 8,
+      "name" : "G",
+      "contents" : {
+        "i18nDescription" : {
+          "DefaultValue" : null,
+          "Map" : { }
+        },
+        "displayedName" : {
+          "DefaultValue" : "/D/G",
+          "Map" : { }
+        },
+        "attributeStatements" : [ ],
+        "attributesClasses" : [ ]
+      },
+      "groupPath" : "/D/G"
+    }, {
+      "id" : 9,
+      "name" : "F",
+      "contents" : {
+        "i18nDescription" : {
+          "DefaultValue" : null,
+          "Map" : { }
+        },
+        "displayedName" : {
+          "DefaultValue" : "/D/F",
+          "Map" : { }
+        },
+        "attributeStatements" : [ ],
+        "attributesClasses" : [ ]
+      },
+      "groupPath" : "/D/F"
+    }, {
+      "id" : 5,
+      "name" : "C",
+      "contents" : {
+        "i18nDescription" : {
+          "DefaultValue" : null,
+          "Map" : { }
+        },
+        "displayedName" : {
+          "DefaultValue" : "/A/B/C",
+          "Map" : { }
+        },
+        "attributeStatements" : [ ],
+        "attributesClasses" : [ ]
+      },
+      "groupPath" : "/A/B/C"
+    }, {
+      "id" : 10,
+      "name" : "portal",
+      "contents" : {
+        "i18nDescription" : {
+          "DefaultValue" : null,
+          "Map" : { }
+        },
+        "displayedName" : {
+          "DefaultValue" : "/portal",
+          "Map" : { }
+        },
+        "attributeStatements" : [ ],
+        "attributesClasses" : [ "UNICORE portal attributes" ]
+      },
+      "groupPath" : "/portal"
+    }, {
+      "id" : 2,
+      "name" : "oauth-clients",
+      "contents" : {
+        "i18nDescription" : {
+          "DefaultValue" : null,
+          "Map" : { }
+        },
+        "displayedName" : {
+          "DefaultValue" : "/oauth-clients",
+          "Map" : { }
+        },
+        "attributeStatements" : [ ],
+        "attributesClasses" : [ ]
+      },
+      "groupPath" : "/oauth-clients"
+    } ],
+    "groupMembers" : [ {
+      "groupPath" : "/",
+      "members" : [ {
+        "entity" : 1,
+        "groupId" : 1,
+        "contents" : "eyJjcmVhdGlvblRzIjoxNDcwODIzMDQyMDIzfQ=="
+      }, {
+        "entity" : 2,
+        "groupId" : 1,
+        "contents" : "eyJjcmVhdGlvblRzIjoxNDcwODIzMDQyMTU4fQ=="
+      }, {
+        "entity" : 3,
+        "groupId" : 1,
+        "contents" : "eyJjcmVhdGlvblRzIjoxNDcwODIzMDQyMzM1fQ=="
+      }, {
+        "entity" : 4,
+        "groupId" : 1,
+        "contents" : "eyJjcmVhdGlvblRzIjoxNDcwODIzMTYxNTk5fQ=="
+      } ]
+    }, {
+      "groupPath" : "/A",
+      "members" : [ {
+        "entity" : 3,
+        "groupId" : 3,
+        "contents" : "eyJjcmVhdGlvblRzIjoxNDcwODIzMDQyNDIxfQ=="
+      } ]
+    }, {
+      "groupPath" : "/D",
+      "members" : [ ]
+    }, {
+      "groupPath" : "/A/B",
+      "members" : [ ]
+    }, {
+      "groupPath" : "/D/E",
+      "members" : [ ]
+    }, {
+      "groupPath" : "/D/G",
+      "members" : [ ]
+    }, {
+      "groupPath" : "/D/F",
+      "members" : [ ]
+    }, {
+      "groupPath" : "/A/B/C",
+      "members" : [ ]
+    }, {
+      "groupPath" : "/portal",
+      "members" : [ {
+        "entity" : 4,
+        "groupId" : 10,
+        "contents" : "eyJjcmVhdGlvblRzIjoxNDcwODIzMTYxNjA1fQ=="
+      } ]
+    }, {
+      "groupPath" : "/oauth-clients",
+      "members" : [ {
+        "entity" : 2,
+        "groupId" : 2,
+        "contents" : "eyJjcmVhdGlvblRzIjoxNDcwODIzMDQyMTc3fQ=="
+      } ]
+    } ],
+    "attributes" : [ {
+      "groupPath" : "/",
+      "entity" : 1,
+      "attributeName" : "sys:CredentialRequirements",
+      "valueSyntaxId" : "string",
+      "values" : "eyJ2aXNpYmlsaXR5IjoibG9jYWwiLCJ2YWx1ZXMiOlsiVUdGemMzZHZjbVFnY21WeGRXbHlaVzFsYm5RPSJdLCJjcmVhdGlvblRzIjoxNDcwODIzMDQyMDI3LCJ1cGRhdGVUcyI6MTQ3MDgyMzA0MjAyN30="
+    }, {
+      "groupPath" : "/",
+      "entity" : 1,
+      "attributeName" : "sys:Credential:Password credential",
+      "valueSyntaxId" : "string",
+      "values" : "eyJ2aXNpYmlsaXR5IjoibG9jYWwiLCJ2YWx1ZXMiOlsiZXlKd1lYTnpkMjl5WkhNaU9sdDdJbWhoYzJnaU9pSllkMEphYkZoVGEwRjVkaXQzTVhVM2JVaHBlbE5OU0VWclUwTmFSbUZhVTFsUE5IUkpOa2hpZUdGUlBTSXNJbk5oYkhRaU9pSXRNVGM0TURRM05UWXpOell6T1RVMU5EWTFNaUlzSW5ScGJXVWlPakUwTnpBNE1qTXdOREl3T0RZc0luSmxhR0Z6YUU1MWJXSmxjaUk2TVgxZExDSnZkWFJrWVhSbFpDSTZabUZzYzJWOSJdLCJjcmVhdGlvblRzIjoxNDcwODIzMDQyMDg3LCJ1cGRhdGVUcyI6MTQ3MDgyMzA0MjA4N30="
+    }, {
+      "groupPath" : "/",
+      "entity" : 1,
+      "attributeName" : "sys:AuthorizationRole",
+      "valueSyntaxId" : "enumeration",
+      "values" : "eyJ2aXNpYmlsaXR5IjoibG9jYWwiLCJ2YWx1ZXMiOlsiVTNsemRHVnRJRTFoYm1GblpYST0iXSwiY3JlYXRpb25UcyI6MTQ3MDgyMzA0MjEwOCwidXBkYXRlVHMiOjE0NzA4MjMwNDIxMDh9"
+    }, {
+      "groupPath" : "/",
+      "entity" : 2,
+      "attributeName" : "sys:CredentialRequirements",
+      "valueSyntaxId" : "string",
+      "values" : "eyJ2aXNpYmlsaXR5IjoibG9jYWwiLCJ2YWx1ZXMiOlsiVUdGemMzZHZjbVFnY21WeGRXbHlaVzFsYm5RPSJdLCJjcmVhdGlvblRzIjoxNDcwODIzMDQyMTYwLCJ1cGRhdGVUcyI6MTQ3MDgyMzA0MjE2MH0="
+    }, {
+      "groupPath" : "/",
+      "entity" : 2,
+      "attributeName" : "sys:Credential:Password credential",
+      "valueSyntaxId" : "string",
+      "values" : "eyJ2aXNpYmlsaXR5IjoibG9jYWwiLCJ2YWx1ZXMiOlsiZXlKd1lYTnpkMjl5WkhNaU9sdDdJbWhoYzJnaU9pSnVNbTVrTHpRdk5TdDNTbTB4ZUdkamNsYzJhblpXVmtaMllpc3dheTlVVjI1d1ZpdEVSSGMyUkZjNFBTSXNJbk5oYkhRaU9pSXRNekV6T1RFeE16RTNNemMyTnpnNU5ERXdOQ0lzSW5ScGJXVWlPakUwTnpBNE1qTXdOREl4Tmpjc0luSmxhR0Z6YUU1MWJXSmxjaUk2TVgxZExDSnZkWFJrWVhSbFpDSTZabUZzYzJWOSJdLCJjcmVhdGlvblRzIjoxNDcwODIzMDQyMTY4LCJ1cGRhdGVUcyI6MTQ3MDgyMzA0MjE2OH0="
+    }, {
+      "groupPath" : "/",
+      "entity" : 1,
+      "attributeName" : "cn",
+      "valueSyntaxId" : "string",
+      "values" : "eyJ2aXNpYmlsaXR5IjoiZnVsbCIsInZhbHVlcyI6WyJSR1ZtWVhWc2RDQkJaRzFwYm1semRISmhkRzl5Il0sImNyZWF0aW9uVHMiOjE0NzA4MjMwNDIyNjYsInVwZGF0ZVRzIjoxNDcwODIzMDQyMjY2fQ=="
+    }, {
+      "groupPath" : "/",
+      "entity" : 3,
+      "attributeName" : "sys:CredentialRequirements",
+      "valueSyntaxId" : "string",
+      "values" : "eyJ2aXNpYmlsaXR5IjoibG9jYWwiLCJ2YWx1ZXMiOlsiVUdGemMzZHZjbVFnY21WeGRXbHlaVzFsYm5RPSJdLCJjcmVhdGlvblRzIjoxNDcwODIzMDQyMzQ0LCJ1cGRhdGVUcyI6MTQ3MDgyMzA0MjM0NH0="
+    }, {
+      "groupPath" : "/",
+      "entity" : 3,
+      "attributeName" : "sys:AuthorizationRole",
+      "valueSyntaxId" : "enumeration",
+      "values" : "eyJ2aXNpYmlsaXR5IjoibG9jYWwiLCJ2YWx1ZXMiOlsiVW1WbmRXeGhjaUJWYzJWeSJdLCJjcmVhdGlvblRzIjoxNDcwODIzMDQyNDI5LCJ1cGRhdGVUcyI6MTQ3MDgyMzA0MjQyOX0="
+    }, {
+      "groupPath" : "/",
+      "entity" : 3,
+      "attributeName" : "o",
+      "valueSyntaxId" : "string",
+      "values" : "eyJ2aXNpYmlsaXR5IjoiZnVsbCIsInZhbHVlcyI6WyJSWGhoYlhCc1pTQnZjbWRoYm1sNllYUnBiMjQ9IiwiYjNKbk1nPT0iLCJiM0puTXc9PSJdLCJjcmVhdGlvblRzIjoxNDcwODIzMDQyNDM5LCJ1cGRhdGVUcyI6MTQ3MDgyMzA0MjQzOX0="
+    }, {
+      "groupPath" : "/",
+      "entity" : 3,
+      "attributeName" : "email",
+      "valueSyntaxId" : "verifiableEmail",
+      "values" : "eyJ2aXNpYmlsaXR5IjoiZnVsbCIsInZhbHVlcyI6WyJleUoyWVd4MVpTSTZJbk52YldWQVpXMWhhV3d1WTI5dElpd2lZMjl1Wm1seWJXRjBhVzl1UkdGMFlTSTZJbnRjSW1OdmJtWnBjbTFsWkZ3aU9uUnlkV1VzWENKamIyNW1hWEp0WVhScGIyNUVZWFJsWENJNk1UUTNNRGd5TXpBME1qUTBOU3hjSW5ObGJuUlNaWEYxWlhOMFFXMXZkVzUwWENJNk1IMGlMQ0owWVdkeklqcGJYWDA9Il0sImNyZWF0aW9uVHMiOjE0NzA4MjMwNDI0NDYsInVwZGF0ZVRzIjoxNDcwODIzMDQyNDQ2fQ=="
+    }, {
+      "groupPath" : "/",
+      "entity" : 3,
+      "attributeName" : "cn",
+      "valueSyntaxId" : "string",
+      "values" : "eyJ2aXNpYmlsaXR5IjoiZnVsbCIsInZhbHVlcyI6WyJTR2x3WlhJZ2RYTmxjZz09Il0sImNyZWF0aW9uVHMiOjE0NzA4MjMwNDI0NjgsInVwZGF0ZVRzIjoxNDcwODIzMDQyNDY4fQ=="
+    }, {
+      "groupPath" : "/",
+      "entity" : 3,
+      "attributeName" : "sys:Credential:Password credential",
+      "valueSyntaxId" : "string",
+      "values" : "eyJ2aXNpYmlsaXR5IjoibG9jYWwiLCJ2YWx1ZXMiOlsiZXlKd1lYTnpkMjl5WkhNaU9sdDdJbWhoYzJnaU9pSkpOMjlLZGtkWGRqQlVORmxIVEc5cVZrZDFVbmhRWlRZeFVUQlVTVUpFUTNGVlpFTkZhamhMVm14clBTSXNJbk5oYkhRaU9pSXlORGs1TXpneU56TXhNVGc1TXpjeU1EVTBJaXdpZEdsdFpTSTZNVFEzTURneU16QTBNalEzTkN3aWNtVm9ZWE5vVG5WdFltVnlJam94ZlYwc0ltOTFkR1JoZEdWa0lqcG1ZV3h6WlgwPSJdLCJjcmVhdGlvblRzIjoxNDcwODIzMDQyNDc0LCJ1cGRhdGVUcyI6MTQ3MDgyMzA0MjQ3NH0="
+    }, {
+      "groupPath" : "/",
+      "entity" : 4,
+      "attributeName" : "sys:CredentialRequirements",
+      "valueSyntaxId" : "string",
+      "values" : "eyJ2aXNpYmlsaXR5IjoibG9jYWwiLCJ2YWx1ZXMiOlsiVUdGemMzZHZjbVFnY21WeGRXbHlaVzFsYm5RPSJdLCJjcmVhdGlvblRzIjoxNDcwODIzMTYxNjAxLCJ1cGRhdGVUcyI6MTQ3MDgyMzE2MTYwMX0="
+    }, {
+      "groupPath" : "/",
+      "entity" : 4,
+      "attributeName" : "sys:Credential:Password credential",
+      "valueSyntaxId" : "string",
+      "values" : "eyJ2aXNpYmlsaXR5IjoibG9jYWwiLCJ2YWx1ZXMiOlsiZXlKd1lYTnpkMjl5WkhNaU9sdDdJbWhoYzJnaU9pSnRTMlo2TkZwUE1GQkxaakI0TTNoTldXOVJUR1JCTUZSemRFYzBkVkYzWVZSbE1GUnFVVVJzUTFFMFBTSXNJbk5oYkhRaU9pSTBNVEU0TURnNU5EVXpOamMwTlRFME1ETTNJaXdpZEdsdFpTSTZNVFEzTURneU16RTFOREkyTml3aWNtVm9ZWE5vVG5WdFltVnlJam94ZlYwc0ltOTFkR1JoZEdWa0lqcG1ZV3h6WlgwPSJdLCJjcmVhdGlvblRzIjoxNDcwODIzMTYxNjIxLCJ1cGRhdGVUcyI6MTQ3MDgyMzE2MTYyMX0="
+    }, {
+      "groupPath" : "/portal",
+      "entity" : 4,
+      "attributeName" : "cn",
+      "valueSyntaxId" : "string",
+      "values" : "eyJ2aXNpYmlsaXR5IjoiZnVsbCIsInZhbHVlcyI6WyJWMmxzYkdWdCJdLCJjcmVhdGlvblRzIjoxNDcwODIzMTYxNjA2LCJ1cGRhdGVUcyI6MTQ3MDgyMzE2MTYwNn0="
+    }, {
+      "groupPath" : "/portal",
+      "entity" : 4,
+      "attributeName" : "email",
+      "valueSyntaxId" : "verifiableEmail",
+      "values" : "eyJ2aXNpYmlsaXR5IjoiZnVsbCIsInZhbHVlcyI6WyJleUoyWVd4MVpTSTZJbmRwYkd4bGJVQmpiR0Z5YVc0dVpYVWlMQ0pqYjI1bWFYSnRZWFJwYjI1RVlYUmhJam9pZTF3aVkyOXVabWx5YldWa1hDSTZabUZzYzJVc1hDSmpiMjVtYVhKdFlYUnBiMjVFWVhSbFhDSTZNQ3hjSW5ObGJuUlNaWEYxWlhOMFFXMXZkVzUwWENJNk1YMGlMQ0owWVdkeklqcGJYWDA9Il0sImNyZWF0aW9uVHMiOjE0NzA4MjMxNjE2MTksInVwZGF0ZVRzIjoxNDcwODIzMTYxNjE5fQ=="
+    }, {
+      "groupPath" : "/oauth-clients",
+      "entity" : 2,
+      "attributeName" : "sys:oauth:allowedGrantFlows",
+      "valueSyntaxId" : "enumeration",
+      "values" : "eyJ2aXNpYmlsaXR5IjoibG9jYWwiLCJ2YWx1ZXMiOlsiWVhWMGFHOXlhWHBoZEdsdmJrTnZaR1U9IiwiYVcxd2JHbGphWFE9IiwiYjNCbGJtbGtTSGxpY21sayJdLCJjcmVhdGlvblRzIjoxNDcwODIzMDQyMTg2LCJ1cGRhdGVUcyI6MTQ3MDgyMzA0MjE4Nn0="
+    }, {
+      "groupPath" : "/oauth-clients",
+      "entity" : 2,
+      "attributeName" : "sys:oauth:allowedReturnURI",
+      "valueSyntaxId" : "string",
+      "values" : "eyJ2aXNpYmlsaXR5IjoibG9jYWwiLCJ2YWx1ZXMiOlsiYUhSMGNITTZMeTlzYjJOaGJHaHZjM1E2TWpRME15OTFibWwwZVdkM0wyOWhkWFJvTWxKbGMzQnZibk5sUTI5dWMzVnRaWEk9Il0sImNyZWF0aW9uVHMiOjE0NzA4MjMwNDIxOTIsInVwZGF0ZVRzIjoxNDcwODIzMDQyMTkyfQ=="
+    } ],
+    "genericObjects" : [ {
+      "type" : "messageTemplate",
+      "subType" : null,
+      "name" : "registrationRequestRejected",
+      "lastUpdate" : 1470823042136,
+      "contents" : {
+        "name" : "registrationRequestRejected",
+        "description" : "",
+        "consumer" : "RegistrationRequestRejected",
+        "messages" : [ {
+          "locale" : "",
+          "subject" : "Registration request rejected",
+          "body" : "The registration request \"${requestId}\" was rejected.\n\n${publicComment}\n"
+        } ]
+      }
+    }, {
+      "type" : "messageTemplate",
+      "subType" : null,
+      "name" : "registrationRequestAccepted",
+      "lastUpdate" : 1470823042138,
+      "contents" : {
+        "name" : "registrationRequestAccepted",
+        "description" : "",
+        "consumer" : "RegistrationRequestAccepted",
+        "messages" : [ {
+          "locale" : "",
+          "subject" : "Registration request accepted",
+          "body" : "The registration request \"${requestId}\" was accepted.\n\n${publicComment}\n"
+        } ]
+      }
+    }, {
+      "type" : "messageTemplate",
+      "subType" : null,
+      "name" : "emailConfirmation",
+      "lastUpdate" : 1470823042140,
+      "contents" : {
+        "name" : "emailConfirmation",
+        "description" : "",
+        "consumer" : "Confirmation",
+        "messages" : [ {
+          "locale" : "",
+          "subject" : "UNITY e-mail confirmation request",
+          "body" : "Dear User,\n\nYour e-mail address was entered in the Unity service and must be validated.\n\nTo confirm your email address, please click to the following link:\n${confirmationLink}\n\nIf you didn't requested e-mail confirmation please ignore this message."
+        } ]
+      }
+    }, {
+      "type" : "messageTemplate",
+      "subType" : null,
+      "name" : "passwordResetCode",
+      "lastUpdate" : 1470823042141,
+      "contents" : {
+        "name" : "passwordResetCode",
+        "description" : "",
+        "consumer" : "PasswordResetCode",
+        "messages" : [ {
+          "locale" : "",
+          "subject" : "Credential reset code",
+          "body" : "Somebody, hopefully you, requested to reset your credential in the UNITY service.\n\nIf you didn't requested the credential reset simply ignore this message.\n\nIf you did, then use the following code in the credential reset window:\n\n${code}\n\n"
+        } ]
+      }
+    }, {
+      "type" : "messageTemplate",
+      "subType" : null,
+      "name" : "registrationRequestUpdated",
+      "lastUpdate" : 1470823042142,
+      "contents" : {
+        "name" : "registrationRequestUpdated",
+        "description" : "",
+        "consumer" : "RegistrationRequestUpdated",
+        "messages" : [ {
+          "locale" : "",
+          "subject" : "Registration request update",
+          "body" : "The registration request \"${requestId}\" was updated.\n\n${publicComment}\n\n${internalComment}\n"
+        } ]
+      }
+    }, {
+      "type" : "messageTemplate",
+      "subType" : null,
+      "name" : "registrationRequestSubmitted",
+      "lastUpdate" : 1470823042143,
+      "contents" : {
+        "name" : "registrationRequestSubmitted",
+        "description" : "",
+        "consumer" : "RegistrationRequestSubmitted",
+        "messages" : [ {
+          "locale" : "",
+          "subject" : "New registration request",
+          "body" : "A new registration request \"${requestId}\" was submitted to the registration form \"${formName}\"."
+        } ]
+      }
+    }, {
+      "type" : "confirmationConfiguration",
+      "subType" : null,
+      "name" : "attributeemail",
+      "lastUpdate" : 1470823042503,
+      "contents" : {
+        "nameToConfirm" : "email",
+        "typeToConfirm" : "attribute",
+        "msgTemplate" : "emailConfirmation",
+        "notificationChannel" : "Default e-mail channel"
+      }
+    }, {
+      "type" : "confirmationConfiguration",
+      "subType" : null,
+      "name" : "identityemail",
+      "lastUpdate" : 1470823042511,
+      "contents" : {
+        "nameToConfirm" : "email",
+        "typeToConfirm" : "identity",
+        "msgTemplate" : "emailConfirmation",
+        "notificationChannel" : "Default e-mail channel"
+      }
+    }, {
+      "type" : "authenticator",
+      "subType" : null,
+      "name" : "pwdWeb",
+      "lastUpdate" : 1470823042679,
+      "contents" : {
+        "id" : "pwdWeb",
+        "typeDescription" : {
+          "id" : "password with web-password",
+          "supportedBinding" : "web-vaadin7",
+          "verificationMethod" : "password",
+          "verificationMethodDescription" : "Verifies passwords",
+          "retrievalMethod" : "web-password",
+          "retrievalMethodDescription" : "WebPasswordRetrievalFactory.desc",
+          "local" : true
+        },
+        "retrievalJsonConfiguration" : "{\n\t\"i18nName\" : {\n\t\t\"Map\": {\n\t\t\t\"en\": \"Password\",\n\t\t\t\"pl\": \"Uwierzytelnianie hasłem\"\n\t\t}\n\t}\n}\t",
+        "verificatorJsonConfiguration" : null,
+        "localCredentialName" : "Password credential"
+      }
+    }, {
+      "type" : "authenticator",
+      "subType" : null,
+      "name" : "certWeb",
+      "lastUpdate" : 1470823042684,
+      "contents" : {
+        "id" : "certWeb",
+        "typeDescription" : {
+          "id" : "certificate with web-certificate",
+          "supportedBinding" : "web-vaadin7",
+          "verificationMethod" : "certificate",
+          "verificationMethodDescription" : "Verifies certificates",
+          "retrievalMethod" : "web-certificate",
+          "retrievalMethodDescription" : "WebTLSRetrievalFactory.desc",
+          "local" : true
+        },
+        "retrievalJsonConfiguration" : "{\n\t\"i18nName\" : {\n\t\t\"Map\": {\n\t\t\t\"en\": \"Certificate authentication\",\n\t\t\t\"pl\": \"Uwierzytelnianie certyfikatem\"\n\t\t}\n\t}\n}",
+        "verificatorJsonConfiguration" : null,
+        "localCredentialName" : "Certificate credential"
+      }
+    }, {
+      "type" : "authenticator",
+      "subType" : null,
+      "name" : "pwdWS",
+      "lastUpdate" : 1470823042693,
+      "contents" : {
+        "id" : "pwdWS",
+        "typeDescription" : {
+          "id" : "password with cxf-httpbasic",
+          "supportedBinding" : "webservice-cxf2",
+          "verificationMethod" : "password",
+          "verificationMethodDescription" : "Verifies passwords",
+          "retrievalMethod" : "cxf-httpbasic",
+          "retrievalMethodDescription" : "CXFHttpBasicRetrievalFactory.desc",
+          "local" : true
+        },
+        "retrievalJsonConfiguration" : "",
+        "verificatorJsonConfiguration" : null,
+        "localCredentialName" : "Password credential"
+      }
+    }, {
+      "type" : "authenticator",
+      "subType" : null,
+      "name" : "pwdRest",
+      "lastUpdate" : 1470823042697,
+      "contents" : {
+        "id" : "pwdRest",
+        "typeDescription" : {
+          "id" : "password with rest-httpbasic",
+          "supportedBinding" : "jaxrs2",
+          "verificationMethod" : "password",
+          "verificationMethodDescription" : "Verifies passwords",
+          "retrievalMethod" : "rest-httpbasic",
+          "retrievalMethodDescription" : "CXFHttpBasicRetrievalFactory.desc",
+          "local" : true
+        },
+        "retrievalJsonConfiguration" : "",
+        "verificatorJsonConfiguration" : null,
+        "localCredentialName" : "Password credential"
+      }
+    }, {
+      "type" : "authenticator",
+      "subType" : null,
+      "name" : "certWS",
+      "lastUpdate" : 1470823042704,
+      "contents" : {
+        "id" : "certWS",
+        "typeDescription" : {
+          "id" : "certificate with cxf-certificate",
+          "supportedBinding" : "webservice-cxf2",
+          "verificationMethod" : "certificate",
+          "verificationMethodDescription" : "Verifies certificates",
+          "retrievalMethod" : "cxf-certificate",
+          "retrievalMethodDescription" : "CXFTLSRetrievalFactory.desc",
+          "local" : true
+        },
+        "retrievalJsonConfiguration" : "",
+        "verificatorJsonConfiguration" : null,
+        "localCredentialName" : "Certificate credential"
+      }
+    }, {
+      "type" : "authenticator",
+      "subType" : null,
+      "name" : "pwdLdapSimple",
+      "lastUpdate" : 1470823042708,
+      "contents" : {
+        "id" : "pwdLdapSimple",
+        "typeDescription" : {
+          "id" : "password with ldap-simple",
+          "supportedBinding" : "ldap-protocol",
+          "verificationMethod" : "password",
+          "verificationMethodDescription" : "Verifies passwords",
+          "retrievalMethod" : "ldap-simple",
+          "retrievalMethodDescription" : "LdapSimpleBindRetrievalFactory.desc",
+          "local" : true
+        },
+        "retrievalJsonConfiguration" : "{\n\t\"i18nName\" : {\n\t\t\"Map\": {\n\t\t\t\"en\": \"Password\",\n\t\t\t\"pl\": \"Uwierzytelnianie hasłem\"\n\t\t}\n\t}\n}\t",
+        "verificatorJsonConfiguration" : null,
+        "localCredentialName" : "Password credential"
+      }
+    }, {
+      "type" : "registrationRequest",
+      "subType" : null,
+      "name" : "c20cfcd5-abfe-4eda-9422-c74e53d5caa3",
+      "lastUpdate" : 1470823161596,
+      "contents" : {
+        "AdminComments" : [ ],
+        "RequestId" : "c20cfcd5-abfe-4eda-9422-c74e53d5caa3",
+        "Status" : "accepted",
+        "Timestamp" : 1470823154255,
+        "Context" : {
+          "tryAutoAccept" : true,
+          "isOnIdpEndpoint" : false,
+          "triggeringMode" : "manualAtLogin"
+        },
+        "Agreements" : [ ],
+        "Attributes" : [ {
+          "attribute" : {
+            "visibility" : "full",
+            "values" : [ "V2lsbGVt" ],
+            "name" : "cn",
+            "groupPath" : "/portal"
+          }
+        }, {
+          "attribute" : {
+            "visibility" : "full",
+            "values" : [ "eyJ2YWx1ZSI6IndpbGxlbUBjbGFyaW4uZXUiLCJjb25maXJtYXRpb25EYXRhIjoie1wiY29uZmlybWVkXCI6ZmFsc2UsXCJjb25maXJtYXRpb25EYXRlXCI6MCxcInNlbnRSZXF1ZXN0QW1vdW50XCI6MX0iLCJ0YWdzIjpbXX0=" ],
+            "name" : "email",
+            "groupPath" : "/portal"
+          }
+        } ],
+        "Comments" : null,
+        "Credentials" : [ {
+          "credentialId" : "Password credential",
+          "secrets" : "{\"passwords\":[{\"hash\":\"mKfz4ZO0PKf0x3xMYoQLdA0TstG4uQwaTe0TjQDlCQ4=\",\"salt\":\"4118089453674514037\",\"time\":1470823154266,\"rehashNumber\":1}],\"outdated\":false}"
+        } ],
+        "FormId" : "New registration form",
+        "GroupSelections" : [ {
+          "selected" : true,
+          "externalIdp" : null,
+          "translationProfile" : null
+        } ],
+        "Identities" : [ {
+          "typeId" : "userName",
+          "value" : "test",
+          "target" : null,
+          "realm" : null,
+          "translationProfile" : null,
+          "remoteIdp" : null,
+          "confirmationInfo" : {
+            "confirmed" : false,
+            "confirmationDate" : 0,
+            "sentRequestAmount" : 0,
+            "serializedConfiguration" : "{\"confirmed\":false,\"confirmationDate\":0,\"sentRequestAmount\":0}"
+          },
+          "metadata" : null
+        } ],
+        "RegistrationCode" : null,
+        "UserLocale" : "en"
+      }
+    }, {
+      "type" : "credential",
+      "subType" : null,
+      "name" : "Password credential",
+      "lastUpdate" : 1470823041905,
+      "contents" : {
+        "typeId" : "password",
+        "name" : "Password credential",
+        "jsonConfiguration" : "{\"minLength\": 1,\"historySize\": 1,\"minClassesNum\": 1,\"denySequences\": false,\"maxAge\": 30758400000}",
+        "displayedName" : {
+          "DefaultValue" : null,
+          "Map" : {
+            "pl" : "Hasło",
+            "en" : "Password"
+          }
+        },
+        "i18nDescription" : {
+          "DefaultValue" : null,
+          "Map" : {
+            "pl" : "Domyślne hasło z minimalnymi ustawieniami zabezpieczeń.",
+            "en" : "Default password credential with typical security settings."
+          }
+        }
+      }
+    }, {
+      "type" : "credential",
+      "subType" : null,
+      "name" : "Certificate credential",
+      "lastUpdate" : 1470823042121,
+      "contents" : {
+        "typeId" : "certificate",
+        "name" : "Certificate credential",
+        "jsonConfiguration" : "",
+        "displayedName" : {
+          "DefaultValue" : "Certificate credential",
+          "Map" : { }
+        },
+        "i18nDescription" : {
+          "DefaultValue" : "Credential allowing for certificate login",
+          "Map" : { }
+        }
+      }
+    }, {
+      "type" : "notificationChannel",
+      "subType" : null,
+      "name" : "Default e-mail channel",
+      "lastUpdate" : 1470823042147,
+      "contents" : {
+        "configuration" : "# User name which will be used for From: field of the email. It is also used  \n# as SMTP envelope return address if not overriden below.\nmail.from=root@localhost\n\n# The SMTP server to connect to.\nmail.smtp.host=localhost\n\n# If true, enables the use of the STARTTLS command (if supported by the server) \n# to switch the connection to a TLS-protected connection before issuing any login commands.\n# \n# IMPORTANT! SMTP server's certificate must be trusted to establish the connection.\n# The software will use the same truststore that is defined in main configuration of the server\n# so add SMTP server's CA certificate to it. Otherwise you can turn off the server's certificate verification\n# below, but you expose yourself for the MITM attacks. \n# Defaults to false.\n#mail.smtp.starttls.enable=true\n\n# Relevant only if starttls is enabled. Turns off SMTP server certificate verification.\n#mailx.smtp.trustAll=true\n\n# Email address to use for SMTP MAIL command. This sets the envelope return address. \n# Defaults to mail.from defined above.\n#mail.smtp.from=\n\n# If true, attempt to authenticate the user using the AUTH command. Defaults to false.\n#mail.smtp.auth=true\n\n# User and password used when authentication is enabled above.\n#mailx.smtp.auth.username=XX\n#mailx.smtp.auth.password=XX\n\n# I/O timeout value in milliseconds. Default is infinite timeout.\nmail.smtp.timeoutSocket=15000\n\n# Socket connection timeout value in milliseconds. Default is infinite timeout.\nmail.smtp.connectiontimeout=15000\n\n# The SMTP server port to connect to. Defaults to 25.\n#mail.smtp.port=587\n\n# Set this property to true if you want to see debug messages (are printed to the\n# stderr). Default is false.\n#mail.debug=true\n\n# For other (less frequently used) properties of email client configuration\n# take a look at  \n# https://javamail.java.net/nonav/docs/api/\n# and other documentation of javax-mail package.\n",
+        "facilityId" : "email",
+        "description" : "Default email channel"
+      }
+    }, {
+      "type" : "endpointDefinition",
+      "subType" : "WebAdminUI",
+      "name" : "UNITY administration interface",
+      "lastUpdate" : 1470823042740,
+      "contents" : {
+        "description" : {
+          "authenticationOptions" : [ {
+            "primaryAuthenticator" : "pwdWeb"
+          }, {
+            "primaryAuthenticator" : "certWeb"
+          } ],
+          "contextAddress" : "/admin",
+          "description" : "",
+          "id" : "UNITY administration interface",
+          "displayedName" : {
+            "DefaultValue" : "UNITY administration interface",
+            "Map" : { }
+          },
+          "realmName" : "adminRealm",
+          "typeName" : "WebAdminUI"
+        },
+        "state" : "#\n#Wed Aug 10 09:57:22 UTC 2016\nunity.endpoint.web.enableRegistration=true\nunity.endpoint.web.defaultTheme=unityThemeValo\n"
+      }
+    }, {
+      "type" : "endpointDefinition",
+      "subType" : "SAMLWebIdP",
+      "name" : "UNITY SAML web authentication",
+      "lastUpdate" : 1470823042837,
+      "contents" : {
+        "description" : {
+          "authenticationOptions" : [ {
+            "primaryAuthenticator" : "pwdWeb"
+          }, {
+            "primaryAuthenticator" : "certWeb"
+          } ],
+          "contextAddress" : "/saml-idp",
+          "description" : "",
+          "id" : "UNITY SAML web authentication",
+          "displayedName" : {
+            "DefaultValue" : "UNITY SAML web authentication",
+            "Map" : { }
+          },
+          "realmName" : "defaultRealm",
+          "typeName" : "SAMLWebIdP"
+        },
+        "state" : "#\n#Wed Aug 10 09:57:22 UTC 2016\nunity.saml.credential=MAIN\nunity.saml.validityPeriod=3600\nunity.saml.authenticationTimeout=20\nunity.saml.signResponses=asRequest\nunity.saml.defaultGroup=/portal\nunity.endpoint.web.defaultTheme=unityThemeValo\nunity.saml.acceptedSPMetadataSource.idp.url=file\\:///data/metadata/sp-metadata.xml\nunity.saml.issuerURI=http\\://example-saml-idp.org\nunity.saml.spAcceptPolicy=validRequester\nunity.saml.requestValidityPeriod=600\n"
+      }
+    }, {
+      "type" : "endpointDefinition",
+      "subType" : "SAMLUnicoreWebIdP",
+      "name" : "UNITY UNICORE web authentication",
+      "lastUpdate" : 1470823043691,
+      "contents" : {
+        "description" : {
+          "authenticationOptions" : [ {
+            "primaryAuthenticator" : "pwdWeb"
+          }, {
+            "primaryAuthenticator" : "certWeb"
+          } ],
+          "contextAddress" : "/unicore-idp",
+          "description" : "",
+          "id" : "UNITY UNICORE web authentication",
+          "displayedName" : {
+            "DefaultValue" : "UNITY UNICORE web authentication",
+            "Map" : { }
+          },
+          "realmName" : "defaultRealm",
+          "typeName" : "SAMLUnicoreWebIdP"
+        },
+        "state" : "#\n#Wed Aug 10 09:57:23 UTC 2016\nunity.saml.credential=MAIN\nunity.saml.validityPeriod=3600\nunity.saml.authenticationTimeout=20\nunity.saml.signResponses=asRequest\nunity.saml.defaultGroup=/portal\nunity.endpoint.web.defaultTheme=unityThemeValo\nunity.saml.acceptedSPMetadataSource.idp.url=file\\:///data/metadata/sp-metadata.xml\nunity.saml.issuerURI=http\\://example-saml-idp.org\nunity.saml.spAcceptPolicy=validRequester\nunity.saml.requestValidityPeriod=600\n"
+      }
+    }, {
+      "type" : "endpointDefinition",
+      "subType" : "SAMLUnicoreSoapIdP",
+      "name" : "UNITY UNICORE SOAP SAML service",
+      "lastUpdate" : 1470823043755,
+      "contents" : {
+        "description" : {
+          "authenticationOptions" : [ {
+            "primaryAuthenticator" : "pwdWS"
+          }, {
+            "primaryAuthenticator" : "certWS"
+          } ],
+          "contextAddress" : "/unicore-soapidp",
+          "description" : "",
+          "id" : "UNITY UNICORE SOAP SAML service",
+          "displayedName" : {
+            "DefaultValue" : "UNITY UNICORE SOAP SAML service",
+            "Map" : { }
+          },
+          "realmName" : "defaultRealm",
+          "typeName" : "SAMLUnicoreSoapIdP"
+        },
+        "state" : "#\n#Wed Aug 10 09:57:23 UTC 2016\nunity.saml.credential=MAIN\nunity.saml.validityPeriod=3600\nunity.saml.authenticationTimeout=20\nunity.saml.signResponses=asRequest\nunity.saml.defaultGroup=/portal\nunity.saml.acceptedSPMetadataSource.idp.url=file\\:///data/metadata/sp-metadata.xml\nunity.saml.issuerURI=http\\://example-saml-idp.org\nunity.saml.spAcceptPolicy=validRequester\nunity.saml.requestValidityPeriod=600\n"
+      }
+    }, {
+      "type" : "endpointDefinition",
+      "subType" : "SAMLSoapIdP",
+      "name" : "UNITY SOAP SAML service",
+      "lastUpdate" : 1470823043885,
+      "contents" : {
+        "description" : {
+          "authenticationOptions" : [ {
+            "primaryAuthenticator" : "pwdWS"
+          } ],
+          "contextAddress" : "/soapidp",
+          "description" : "",
+          "id" : "UNITY SOAP SAML service",
+          "displayedName" : {
+            "DefaultValue" : "UNITY SOAP SAML service",
+            "Map" : { }
+          },
+          "realmName" : "defaultRealm",
+          "typeName" : "SAMLSoapIdP"
+        },
+        "state" : "#\n#Wed Aug 10 09:57:23 UTC 2016\nunity.saml.credential=MAIN\nunity.saml.validityPeriod=3600\nunity.saml.authenticationTimeout=20\nunity.saml.signResponses=asRequest\nunity.saml.defaultGroup=/portal\nunity.saml.acceptedSPMetadataSource.idp.url=file\\:///data/metadata/sp-metadata.xml\nunity.saml.issuerURI=http\\://example-saml-idp.org\nunity.saml.spAcceptPolicy=validRequester\nunity.saml.requestValidityPeriod=600\n"
+      }
+    }, {
+      "type" : "endpointDefinition",
+      "subType" : "UserHomeUI",
+      "name" : "UNITY user's account",
+      "lastUpdate" : 1470823044017,
+      "contents" : {
+        "description" : {
+          "authenticationOptions" : [ {
+            "primaryAuthenticator" : "pwdWeb"
+          } ],
+          "contextAddress" : "/home",
+          "description" : "",
+          "id" : "UNITY user's account",
+          "displayedName" : {
+            "DefaultValue" : "UNITY user's account",
+            "Map" : { }
+          },
+          "realmName" : "defaultRealm",
+          "typeName" : "UserHomeUI"
+        },
+        "state" : "#\n#Wed Aug 10 09:57:24 UTC 2016\nunity.endpoint.web.defaultTheme=unityThemeValo\nunity.userhome.attributes.4.attribute=picture\nunity.userhome.attributes.4.group=/\nunity.userhome.attributes.1.editable=true\nunity.userhome.attributes.3.showGroup=false\nunity.userhome.attributes.2.attribute=email\nunity.userhome.attributes.1.showGroup=false\nunity.userhome.attributes.4.showGroup=false\nunity.userhome.attributes.4.editable=true\nunity.userhome.attributes.2.showGroup=false\nunity.userhome.attributes.2.editable=true\nunity.userhome.attributes.3.group=/\nunity.userhome.attributes.2.group=/\nunity.userhome.attributes.1.group=/\nunity.endpoint.web.enableRegistration=true\nunity.userhome.attributes.3.attribute=o\nunity.userhome.attributes.3.editable=true\nunity.userhome.attributes.1.attribute=cn\n"
+      }
+    }, {
+      "type" : "endpointDefinition",
+      "subType" : "RESTAdmin",
+      "name" : "RESTful administration API",
+      "lastUpdate" : 1470823044028,
+      "contents" : {
+        "description" : {
+          "authenticationOptions" : [ {
+            "primaryAuthenticator" : "pwdRest"
+          } ],
+          "contextAddress" : "/rest-admin",
+          "description" : "",
+          "id" : "RESTful administration API",
+          "displayedName" : {
+            "DefaultValue" : "RESTful administration API",
+            "Map" : { }
+          },
+          "realmName" : "defaultRealm",
+          "typeName" : "RESTAdmin"
+        },
+        "state" : "#\n#Wed Aug 10 09:57:24 UTC 2016\n"
+      }
+    }, {
+      "type" : "endpointDefinition",
+      "subType" : "OAuth2Authz",
+      "name" : "UNITY OAuth2 Authorization Server",
+      "lastUpdate" : 1470823044179,
+      "contents" : {
+        "description" : {
+          "authenticationOptions" : [ {
+            "primaryAuthenticator" : "pwdWeb"
+          }, {
+            "primaryAuthenticator" : "certWeb"
+          } ],
+          "contextAddress" : "/oauth2-as",
+          "description" : "",
+          "id" : "UNITY OAuth2 Authorization Server",
+          "displayedName" : {
+            "DefaultValue" : "UNITY OAuth2 Authorization Server",
+            "Map" : { }
+          },
+          "realmName" : "defaultRealm",
+          "typeName" : "OAuth2Authz"
+        },
+        "state" : "#\n#Wed Aug 10 09:57:24 UTC 2016\nunity.oauth2.as.scopes.2.attributes.3=email\nunity.oauth2.as.scopes.2.attributes.2=c\nunity.oauth2.as.scopes.1.description=Enables the OpenID Conenct support\nunity.oauth2.as.scopes.2.attributes.1=cn\nunity.oauth2.as.issuerUri=https\\://localhost\\:2443/oauth2\nunity.oauth2.as.scopes.1.name=openid\nunity.oauth2.as.clientsGroup=/oauth-clients\nunity.oauth2.as.scopes.2.name=profile\nunity.oauth2.as.signingCredential=MAIN\nunity.oauth2.as.scopes.2.description=Provides access to the user's profile information\nunity.endpoint.web.defaultTheme=unityThemeValo\nunity.oauth2.as.usersGroup=/oauth-users\n"
+      }
+    }, {
+      "type" : "endpointDefinition",
+      "subType" : "OAuth2Token",
+      "name" : "UNITY OAuth2 Token endpoint",
+      "lastUpdate" : 1470823044216,
+      "contents" : {
+        "description" : {
+          "authenticationOptions" : [ {
+            "primaryAuthenticator" : "pwdRest"
+          } ],
+          "contextAddress" : "/oauth2",
+          "description" : "",
+          "id" : "UNITY OAuth2 Token endpoint",
+          "displayedName" : {
+            "DefaultValue" : "UNITY OAuth2 Token endpoint",
+            "Map" : { }
+          },
+          "realmName" : "defaultRealm",
+          "typeName" : "OAuth2Token"
+        },
+        "state" : "#\n#Wed Aug 10 09:57:24 UTC 2016\nunity.oauth2.as.scopes.2.attributes.3=email\nunity.oauth2.as.scopes.2.attributes.2=c\nunity.oauth2.as.scopes.1.description=Enables the OpenID Conenct support\nunity.oauth2.as.scopes.2.attributes.1=cn\nunity.oauth2.as.issuerUri=https\\://localhost\\:2443/oauth2\nunity.oauth2.as.scopes.1.name=openid\nunity.oauth2.as.clientsGroup=/oauth-clients\nunity.oauth2.as.scopes.2.name=profile\nunity.oauth2.as.signingCredential=MAIN\nunity.oauth2.as.scopes.2.description=Provides access to the user's profile information\nunity.oauth2.as.usersGroup=/oauth-users\n"
+      }
+    }, {
+      "type" : "endpointDefinition",
+      "subType" : "WellKnownLinksHandler",
+      "name" : "Account service",
+      "lastUpdate" : 1470823044253,
+      "contents" : {
+        "description" : {
+          "authenticationOptions" : [ {
+            "primaryAuthenticator" : "pwdWeb"
+          } ],
+          "contextAddress" : "/well-known",
+          "description" : "",
+          "id" : "Account service",
+          "displayedName" : {
+            "DefaultValue" : "Account service",
+            "Map" : { }
+          },
+          "realmName" : "defaultRealm",
+          "typeName" : "WellKnownLinksHandler"
+        },
+        "state" : "#\n#Wed Aug 10 09:57:24 UTC 2016\nunity.endpoint.web.defaultTheme=unityThemeValo\n"
+      }
+    }, {
+      "type" : "endpointDefinition",
+      "subType" : "LDAPServer",
+      "name" : "Ldap info endpoint",
+      "lastUpdate" : 1470823044265,
+      "contents" : {
+        "description" : {
+          "authenticationOptions" : [ {
+            "primaryAuthenticator" : "pwdLdapSimple"
+          } ],
+          "contextAddress" : "/ldap",
+          "description" : "",
+          "id" : "Ldap info endpoint",
+          "displayedName" : {
+            "DefaultValue" : "Ldap info endpoint",
+            "Map" : { }
+          },
+          "realmName" : "defaultRealm",
+          "typeName" : "LDAPServer"
+        },
+        "state" : "#\n#Wed Aug 10 09:57:24 UTC 2016\nunity.ldapServer.groupMemberUserRegexp=cn\nunity.ldapServer.tls=true\nunity.ldapServer.ldapPort=10000\nunity.ldapServer.userQuery=cn\nunity.ldapServer.keystoreName=ldap.keystore\nunity.ldapServer.certPassword=p4ss\nunity.ldapServer.groupQuery=ougroups\nunity.ldapServer.ldapsPort=10443\nunity.ldapServer.host=0.0.0.0\nunity.ldapServer.returnedUserAttributes=cn,entryDN,jpegPhoto\nunity.ldapServer.groupMember=member\n"
+      }
+    }, {
+      "type" : "authenticationRealm",
+      "subType" : null,
+      "name" : "defaultRealm",
+      "lastUpdate" : 1470823042711,
+      "contents" : {
+        "allowForRememberMeDays" : -1,
+        "blockAfterUnsuccessfulLogins" : 4,
+        "blockFor" : 30,
+        "maxInactivity" : 3600,
+        "description" : null
+      }
+    }, {
+      "type" : "authenticationRealm",
+      "subType" : null,
+      "name" : "adminRealm",
+      "lastUpdate" : 1470823042712,
+      "contents" : {
+        "allowForRememberMeDays" : -1,
+        "blockAfterUnsuccessfulLogins" : 4,
+        "blockFor" : 30,
+        "maxInactivity" : 1800,
+        "description" : null
+      }
+    }, {
+      "type" : "credentialRequirement",
+      "subType" : null,
+      "name" : "Password requirement",
+      "lastUpdate" : 1470823041937,
+      "contents" : {
+        "name" : "Password requirement",
+        "description" : "Default password credential requirement",
+        "requiredCredentials" : [ "Password credential" ]
+      }
+    }, {
+      "type" : "attributeClass",
+      "subType" : null,
+      "name" : "Common attributes",
+      "lastUpdate" : 1470823042576,
+      "contents" : {
+        "name" : "Common attributes",
+        "description" : "General purpose attributes, should be enabled for everybody",
+        "allowed" : [ "sys:AuthorizationRole" ],
+        "mandatory" : [ ],
+        "allowArbitrary" : false,
+        "parentClasses" : [ ]
+      }
+    }, {
+      "type" : "attributeClass",
+      "subType" : null,
+      "name" : "Common identification attributes",
+      "lastUpdate" : 1470823042584,
+      "contents" : {
+        "name" : "Common identification attributes",
+        "description" : "Identification attributes, should be set for everybody to enable common system features",
+        "allowed" : [ "jpegPhoto", "cn", "email", "o" ],
+        "mandatory" : [ "cn", "email" ],
+        "allowArbitrary" : false,
+        "parentClasses" : [ ]
+      }
+    }, {
+      "type" : "attributeClass",
+      "subType" : null,
+      "name" : "UNICORE portal attributes",
+      "lastUpdate" : 1470823042589,
+      "contents" : {
+        "name" : "UNICORE portal attributes",
+        "description" : "Attributes useful for the UNICORE portal",
+        "allowed" : [ "jpegPhoto", "cn", "email", "o" ],
+        "mandatory" : [ "cn", "email" ],
+        "allowArbitrary" : false,
+        "parentClasses" : [ "Common attributes" ]
+      }
+    }, {
+      "type" : "registrationForm",
+      "subType" : null,
+      "name" : "New registration form",
+      "lastUpdate" : 1470823110197,
+      "contents" : {
+        "Agreements" : [ ],
+        "AttributeParams" : [ {
+          "label" : null,
+          "description" : null,
+          "retrievalSettings" : "interactive",
+          "optional" : false,
+          "attributeType" : "cn",
+          "group" : "/portal",
+          "showGroups" : false,
+          "useDescription" : false
+        }, {
+          "label" : null,
+          "description" : null,
+          "retrievalSettings" : "interactive",
+          "optional" : false,
+          "attributeType" : "email",
+          "group" : "/portal",
+          "showGroups" : false,
+          "useDescription" : false
+        } ],
+        "CollectComments" : false,
+        "CredentialParams" : [ {
+          "credentialName" : "Password credential",
+          "label" : null,
+          "description" : null
+        } ],
+        "DefaultCredentialRequirement" : "Password requirement",
+        "Description" : "",
+        "i18nFormInformation" : {
+          "DefaultValue" : null,
+          "Map" : { }
+        },
+        "GroupParams" : [ {
+          "label" : null,
+          "description" : null,
+          "retrievalSettings" : "interactive",
+          "groupPath" : "/portal"
+        } ],
+        "IdentityParams" : [ {
+          "label" : null,
+          "description" : null,
+          "retrievalSettings" : "interactive",
+          "optional" : false,
+          "identityType" : "userName"
+        } ],
+        "Name" : "New registration form",
+        "DisplayedName" : {
+          "DefaultValue" : "New registration form",
+          "Map" : { }
+        },
+        "NotificationsConfiguration" : {
+          "submittedTemplate" : null,
+          "updatedTemplate" : null,
+          "rejectedTemplate" : null,
+          "acceptedTemplate" : null,
+          "channel" : null,
+          "adminsNotificationGroup" : "/"
+        },
+        "PubliclyAvailable" : true,
+        "RegistrationCode" : null,
+        "CaptchaLength" : 0,
+        "TranslationProfile" : {
+          "ver" : "2",
+          "name" : "form profile",
+          "type" : "REGISTRATION",
+          "rules" : [ ]
+        }
+      }
+    } ]
+  }
+}

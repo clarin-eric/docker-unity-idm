@@ -48,3 +48,72 @@ docker run -t -i --rm -p 2443:2443 wilelb/unity-idm
 ```
 Note: these containers are run interactively and will shut down as soon as the unity-idm server is stopped (CTR+C). After shutdown the container is removed ("--rm" flag).
 
+
+
+```
+"""
+stop at pl.edu.icm.unity.ldap.endpoint.LdapApacheDSInterceptor:188
+
++-------------------------------+--------------------------------------+
+| Configuration                 |                                      |
++-------------------------------+--------------------------------------+
+| hasMemberOfFilterSupport      | 0                                    |
+| hasPagedResultSupport         |                                      |
+| homeFolderNamingRule          |                                      |
+| lastJpegPhotoLookup           | 0                                    |
+| ldapAgentName                 | uid=admin,ou=system                  |
+| ldapAgentPassword             | ***                                  |
+| ldapAttributesForGroupSearch  |                                      |
+| ldapAttributesForUserSearch   |                                      |
+| ldapBackupHost                |                                      |
+| ldapBackupPort                |                                      |
+| ldapBase                      | ou=system                            |
+| ldapBaseGroups                | ou=groups,ou=system                  |
+| ldapBaseUsers                 | ou=users,ou=system                   |
+| ldapCacheTTL                  | 600                                  |
+| ldapConfigurationActive       | 1                                    |
+| ldapDynamicGroupMemberURL     |                                      |
+| ldapEmailAttribute            |                                      |
+| ldapExperiencedAdmin          | 0                                    |
+| ldapExpertUUIDGroupAttr       |                                      |
+| ldapExpertUUIDUserAttr        |                                      |
+| ldapExpertUsernameAttr        |                                      |
+| ldapGroupDisplayName          | cn                                   |
+| ldapGroupFilter               |                                      |
+| ldapGroupFilterGroups         |                                      |
+| ldapGroupFilterMode           | 0                                    |
+| ldapGroupFilterObjectclass    |                                      |
+| ldapGroupMemberAssocAttr      | uniqueMember                         |
+| ldapHost                      | unity-idm                            |
+| ldapIgnoreNamingRules         |                                      |
+| ldapLoginFilter               | (&(|(objectclass=inetorgperson))(uid=%uid)) |
+| ldapLoginFilterAttributes     |                                      |
+| ldapLoginFilterEmail          | 0                                    |
+| ldapLoginFilterMode           | 0                                    |
+| ldapLoginFilterUsername       | 1                                    |
+| ldapNestedGroups              | 0                                    |
+| ldapOverrideMainServer        |                                      |
+| ldapPagingSize                | 500                                  |
+| ldapPort                      | 10000                                |
+| ldapQuotaAttribute            |                                      |
+| ldapQuotaDefault              |                                      |
+| ldapTLS                       | 0                                    |
+| ldapUserDisplayName           | displayName                          |
+| ldapUserDisplayName2          |                                      |
+| ldapUserFilter                | (|(objectclass=inetorgperson))              |
+| ldapUserFilterGroups          |                                      |
+| ldapUserFilterMode            | 0                                    |
+| ldapUserFilterObjectclass     | person                               |
+| ldapUuidGroupAttribute        | auto                                 |
+| ldapUuidUserAttribute         | auto                                 |
+| turnOffCertCheck              | 0                                    |
+| useMemberOfToDetectMembership | 1                                    |
++-------------------------------+--------------------------------------+
+"""
+```
+
+
+
+```
+ssh -f test@127.0.0.1 -L 4000:127.0.0.1:4000 -N -p 9000
+```
